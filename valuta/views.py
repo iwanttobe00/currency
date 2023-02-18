@@ -1,6 +1,6 @@
 from django.shortcuts import render
 import requests
-# Create your views here.
+import re
 
 app_name = 'valuta'
 
@@ -20,7 +20,6 @@ def currency(request):
         to_curr = request.POST.get('to_curr')
 
         converted_amount = round((currencies[to_curr]) / currencies[from_curr] * float(from_amount), 2)
-
         context = {
             'from_curr': from_curr,
             'to_curr': to_curr,
